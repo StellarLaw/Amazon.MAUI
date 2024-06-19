@@ -44,6 +44,7 @@ namespace Amazon.MAUI
                 InventoryListView.SelectedItem = null;
                 _selectedInventoryItem = null;
                 Console.WriteLine("Item Added");
+
             }
         }
 
