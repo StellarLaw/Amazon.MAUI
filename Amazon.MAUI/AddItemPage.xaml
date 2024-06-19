@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AddItemPage.xaml -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amazon.MAUI.AddItemPage">
+
+    <StackLayout>
+        <Entry x:Name="NameEntry" Placeholder="Name"/>
+        <Entry x:Name="DescriptionEntry" Placeholder="Description"/>
+        <Entry x:Name="PriceEntry" Placeholder="Price" Keyboard="Numeric"/>
+        <Entry x:Name="QuantityEntry" Placeholder="Quantity" Keyboard="Numeric"/>
+        <Button Text="Save" Clicked="OnSaveClicked"/>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ShopPage.xaml -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amazon.MAUI.ShopPage">
+
+    <StackLayout>
+        <Label Text="Available Items" 
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="CenterAndExpand" />
+
+        <ListView x:Name="InventoryListView" ItemSelected="OnInventoryItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Description}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="AddToCartButton" Text="Add to Cart" Clicked="OnAddToCartClicked" IsEnabled="False" />
+
+        <Label Text="Cart Items" 
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="CenterAndExpand" />
+
+        <ListView x:Name="CartListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Quantity}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="RemoveFromCartButton" Text="Remove from Cart" Clicked="OnRemoveFromCartClicked" IsEnabled="False" />
+
+        <Label x:Name="TotalPriceLabel" />
+
+        <Button Text="Checkout" Clicked="OnCheckoutClicked" />
+    </StackLayout>
+
+</ContentPage>
+
+
+
+

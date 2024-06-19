@@ -1,0 +1,11 @@
+.vs/
+# Ignore build artifacts and temp files
+bin/
+obj/
+*.log
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.userprefs
+*.sln.docstates
