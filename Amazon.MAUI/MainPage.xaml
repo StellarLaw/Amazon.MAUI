@@ -20,6 +20,8 @@
             <!-- Add a title or image at the top -->
             <Label Text="Welcome to the Inventory Manager!" 
                    FontSize="Large" 
+                   
+                   TextColor="Black"
                    HorizontalOptions="Center" 
                    Grid.Row="0" 
                    Grid.ColumnSpan="2"
@@ -28,6 +30,8 @@
             <!-- Manage Inventory button -->
             <Button Text="Manage Inventory" 
                     Clicked="OnManageInventoryClicked" 
+                    BackgroundColor="Black"
+                    TextColor="White"
                     Grid.Row="1" 
                     Grid.Column="0"
                     HorizontalOptions="Center"
@@ -37,6 +41,8 @@
             <!-- Shop button -->
             <Button Text="Shop" 
                     Clicked="OnShopClicked" 
+                    BackgroundColor="Black"
+                    TextColor="White"
                     Grid.Row="1" 
                     Grid.Column="1"
                     HorizontalOptions="Center"
