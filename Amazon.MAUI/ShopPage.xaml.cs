@@ -30,6 +30,7 @@ namespace Amazon.MAUI
             if (e.SelectedItem != null)
             {
                 _selectedInventoryItem = (Item)e.SelectedItem;
+                RemoveFromCartButton.IsEnabled = false;
                 AddToCartButton.IsEnabled = true;
             }
         }
@@ -40,10 +41,10 @@ namespace Amazon.MAUI
             {
                 _shop.AddToCart(_selectedInventoryItem.Id, 1); // Add 1 item to the cart
                 RefreshPageData();
-                AddToCartButton.IsEnabled = false; // Disable add button after adding
+                //AddToCartButton.IsEnabled = false; // Disable add button after adding
                 InventoryListView.SelectedItem = null;
-                _selectedInventoryItem = null;
-                Console.WriteLine("Item Added");
+               // _selectedInventoryItem = null;
+                
 
             }
         }
@@ -53,6 +54,7 @@ namespace Amazon.MAUI
             if (e.SelectedItem != null)
             {
                 _selectedCartItem = (Item)e.SelectedItem;
+                AddToCartButton.IsEnabled = false;
                 RemoveFromCartButton.IsEnabled = true;
                 Console.WriteLine("Item selected" + _selectedCartItem.Name);
 
@@ -87,6 +89,4 @@ namespace Amazon.MAUI
         }
     }
 }
-
-
-
+             

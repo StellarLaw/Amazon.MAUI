@@ -9,7 +9,17 @@ namespace Amazon.MAUI.Services
 
     public class Inventory
     {
-        private List<Item> items = new List<Item>();
+        private List<Item> items;
+
+        public Inventory()
+        {
+            items = new List<Item>
+        {
+            new Item("Test 1",  "Description for Test ", 10.0, 1, 5),
+            new Item("Test 2",  "Description for Test ", 10.0, 2, 5),
+            new Item("Test 3",  "Description for Test ", 10.0, 3, 5),
+        };
+        }
 
         public Item GetItemById(int id) => items.Find(i => i.Id == id);
         public List<Item> GetAllItems() => items;
