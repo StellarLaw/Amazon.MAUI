@@ -23,7 +23,7 @@
                VerticalOptions="CenterAndExpand" 
                HorizontalOptions="CenterAndExpand" />
 
-        <ListView x:Name="CartListView">
+        <ListView x:Name="CartListView" ItemSelected="OnCartItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}" Detail="{Binding Quantity}" />
