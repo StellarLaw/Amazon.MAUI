@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- InventoryPage.xaml -->
 <!-- InventoryPage.xaml -->
+<!-- InventoryPage.xaml -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Amazon.MAUI.InventoryPage">
     <ContentPage.Content>
         <StackLayout Padding="20" Spacing="15">
             <Label Text="Inventory" 
-                   
                    TextColor="Black"
                    FontSize="Header" 
                    FontAttributes="Bold" 
@@ -19,17 +19,18 @@
                       HeightRequest="300">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell>
-                            <TextCell.Text>
-                                <MultiBinding StringFormat="ID: {0} - {1}">
-                                    <Binding Path="Id"/>
-                                    <Binding Path="Name"/>
-                                </MultiBinding>
-                            </TextCell.Text>
-                            <TextCell.Detail>
-                                <Binding Path="Description"/>
-                            </TextCell.Detail>
-                        </TextCell>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="5">
+                                <Label Text="{Binding Id}"
+                                       FontSize="Medium"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Name}" 
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}" 
+                                       FontSize="Small"/>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -45,6 +46,7 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
 
 
 

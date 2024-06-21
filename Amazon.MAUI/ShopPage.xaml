@@ -29,8 +29,8 @@
             <!-- Available Items Label -->
             <Label Text="Available Items" 
                    TextColor="Black"
-                   FontSize="Medium"
                    FontAttributes="Bold"
+                   FontSize="Medium" 
                    HorizontalOptions="Center" 
                    Grid.Row="0" 
                    Margin="0,10,0,0"/>
@@ -43,26 +43,28 @@
                       Margin="0,0,0,10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell>
-                            <TextCell.Text>
-                                <MultiBinding StringFormat="ID: {0} - {1}">
-                                    <Binding Path="Id"/>
-                                    <Binding Path="Name"/>
-                                </MultiBinding>
-                            </TextCell.Text>
-                            <TextCell.Detail>
-                                <Binding Path="Description"/>
-                            </TextCell.Detail>
-                        </TextCell>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="5">
+                                <Label Text="{Binding Id}"
+                                       FontSize="Small"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Name}" 
+                                       FontSize="Small"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}" 
+                                       FontSize="Small"/>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
             <!-- Add to Cart Button -->
             <Button x:Name="AddToCartButton" 
-                    Text="Add to Cart" 
+                    Text="Add to Cart"
                     BackgroundColor="Black"
                     TextColor="White"
+                    FontAttributes="Bold"
                     Clicked="OnAddToCartClicked" 
                     IsEnabled="False" 
                     Grid.Row="2" 
@@ -71,10 +73,9 @@
 
             <!-- Cart Items Label -->
             <Label Text="Cart Items" 
-                   
                    TextColor="Black"
-                   FontSize="Medium"
                    FontAttributes="Bold"
+                   FontSize="Medium" 
                    HorizontalOptions="Center" 
                    Grid.Row="3" 
                    Margin="0,10,0,0"/>
@@ -87,17 +88,18 @@
                       Margin="0,0,0,10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell>
-                            <TextCell.Text>
-                                <MultiBinding StringFormat="ID: {0} - {1}">
-                                    <Binding Path="Id"/>
-                                    <Binding Path="Name"/>
-                                </MultiBinding>
-                            </TextCell.Text>
-                            <TextCell.Detail>
-                                <Binding Path="Quantity"/>
-                            </TextCell.Detail>
-                        </TextCell>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="5">
+                                <Label Text="{Binding Id}"
+                                       FontSize="Small"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Name}" 
+                                       FontSize="Small"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Quantity}" 
+                                       FontSize="Small"/>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -105,6 +107,9 @@
             <!-- Remove from Cart Button -->
             <Button x:Name="RemoveFromCartButton" 
                     Text="Remove from Cart" 
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    FontAttributes="Bold"
                     Clicked="OnRemoveFromCartClicked" 
                     IsEnabled="False" 
                     Grid.Row="5" 
@@ -117,6 +122,7 @@
                          Grid.Row="6" 
                          Spacing="10">
                 <Label x:Name="TotalPriceLabel" 
+                       TextColor="Black"
                        FontSize="Large" 
                        FontAttributes="Bold" 
                        VerticalOptions="Center"
@@ -133,6 +139,7 @@
         </Grid>
     </ContentPage.Content>
 </ContentPage>
+
 
 
 
