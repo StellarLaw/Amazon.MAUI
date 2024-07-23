@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Add a title or image at the top -->
+            
             <Label Text="Welcome to the Inventory Manager!" 
                    FontSize="Large" 
                    
@@ -27,7 +27,7 @@
                    Grid.ColumnSpan="2"
                    VerticalOptions="CenterAndExpand"/>
 
-            <!-- Manage Inventory button -->
+            
             <Button Text="Manage Inventory" 
                     Clicked="OnManageInventoryClicked" 
                     BackgroundColor="Black"
@@ -38,7 +38,7 @@
                     VerticalOptions="CenterAndExpand"
                     Margin="10"/>
 
-            <!-- Shop button -->
+            
             <Button Text="Shop" 
                     Clicked="OnShopClicked" 
                     BackgroundColor="Black"
@@ -49,7 +49,7 @@
                     VerticalOptions="CenterAndExpand"
                     Margin="10"/>
 
-            <!-- Some additional space at the bottom if needed -->
+            
             <BoxView HeightRequest="20" Grid.Row="2" Grid.ColumnSpan="2"/>
         </Grid>
     </ContentPage.Content>
