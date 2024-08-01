@@ -4,55 +4,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Amazon.MAUI.MainPage">
-    <ContentPage.Content>
-        <Grid Padding="20" RowSpacing="20">
-            <!-- Define rows and columns -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+    <StackLayout Padding="20" Spacing="10">
+        <Label Text="Amazon MAUI" 
+               FontSize="Large" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               Margin="0,20,0,10"/>
 
-            
-            <Label Text="Welcome to the Inventory Manager!" 
-                   FontSize="Large" 
-                   
-                   TextColor="Black"
-                   HorizontalOptions="Center" 
-                   Grid.Row="0" 
-                   Grid.ColumnSpan="2"
-                   VerticalOptions="CenterAndExpand"/>
+        <Button Text="Go to Inventory" 
+                Clicked="OnInventoryClicked" 
+                BackgroundColor="LightGreen" 
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                HorizontalOptions="Center"
+                Padding="10,5"/>
 
-            
-            <Button Text="Manage Inventory" 
-                    Clicked="OnManageInventoryClicked" 
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    Grid.Row="1" 
-                    Grid.Column="0"
-                    HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
-                    Margin="10"/>
+        <Button Text="Go to Shop" 
+                Clicked="OnShopClicked" 
+                BackgroundColor="LightBlue" 
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                HorizontalOptions="Center"
+                Padding="10,5"/>
 
-            
-            <Button Text="Shop" 
-                    Clicked="OnShopClicked" 
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    Grid.Row="1" 
-                    Grid.Column="1"
-                    HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
-                    Margin="10"/>
-
-            
-            <BoxView HeightRequest="20" Grid.Row="2" Grid.ColumnSpan="2"/>
-        </Grid>
-    </ContentPage.Content>
+        <Button Text="Set Tax Rate" 
+                Clicked="OnSetTaxRateClicked" 
+                BackgroundColor="LightSkyBlue" 
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                HorizontalOptions="Center"
+                Padding="10,5"/>
+    </StackLayout>
 </ContentPage>
 
     

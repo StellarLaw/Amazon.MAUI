@@ -4,38 +4,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Amazon.MAUI.InventoryPage">
     <ContentPage.Content>
-        <StackLayout Padding="20" Spacing="15">
+        <StackLayout Padding="20" Spacing="10">
             <Label Text="Inventory" 
-                   
-                   TextColor="Black"
-                   FontSize="Header" 
+                   FontSize="Large" 
                    FontAttributes="Bold" 
                    HorizontalOptions="Center" 
                    Margin="0,20,0,10"/>
-
-            <ListView x:Name="ItemsListView" 
-                      ItemSelected="OnItemSelected" 
-                      HeightRequest="300">
+            <ListView x:Name="ItemsListView"
+          ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell>
-                            <TextCell.Text>
-                                <MultiBinding StringFormat="ID: {0} - {1}">
-                                    <Binding Path="Id"/>
-                                    <Binding Path="Name"/>
-                                </MultiBinding>
-                            </TextCell.Text>
-                            <TextCell.Detail>
-                                <Binding Path="Description"/>
-                            </TextCell.Detail>
-                        </TextCell>
+                        <ViewCell>
+                            <StackLayout Padding="10" Spacing="5">
+                                <!-- Name of the item -->
+                                <Label Text="{Binding Name}" 
+                           FontSize="Medium" 
+                           FontAttributes="Bold" />
+
+                                <!-- Description and Quantity with labels -->
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label Text="Description:" 
+                               FontSize="Small" 
+                               VerticalOptions="Center" />
+                                    <Label Text="{Binding Description}" 
+                               FontSize="Small" 
+                               VerticalOptions="Center" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label Text="Quantity:" 
+                               FontSize="Small" 
+                               VerticalOptions="Center" />
+                                    <Label Text="{Binding Quantity}" 
+                               FontSize="Small" 
+                               VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
             <Button Text="Add Item" 
                     Clicked="OnAddItemClicked" 
-                    BackgroundColor="Black" 
+                    BackgroundColor="LightGreen" 
                     TextColor="White"
                     FontAttributes="Bold"
                     CornerRadius="10"

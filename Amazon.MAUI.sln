@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.MAUI", "Amazon.MAUI\Amazon.MAUI.csproj", "{5B2A9173-98F2-4EA7-ABB6-980D8AE1F39D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.MAUI", "Amazon.MAUI\Amazon.MAUI.csproj", "{5B2A9173-98F2-4EA7-ABB6-980D8AE1F39D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

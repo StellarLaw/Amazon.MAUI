@@ -4,7 +4,7 @@ namespace Amazon.MAUI
 {
     public partial class InventoryPage : ContentPage
     {
-        private Inventory _inventory;
+        public Inventory _inventory;
 
         public InventoryPage(Inventory inventory)
         {
@@ -13,7 +13,7 @@ namespace Amazon.MAUI
             RefreshPageData();
         }
 
-        private void RefreshPageData()
+        public void RefreshPageData()
         {
             ItemsListView.ItemsSource = null;
             ItemsListView.ItemsSource = _inventory.GetAllItems();
@@ -22,6 +22,7 @@ namespace Amazon.MAUI
         private async void OnAddItemClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddItemPage(_inventory, RefreshPageData));
+            RefreshPageData ();
         }
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)

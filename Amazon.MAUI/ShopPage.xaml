@@ -4,120 +4,148 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Amazon.MAUI.ShopPage">
     <ContentPage.Content>
-        <Grid Padding="20" RowSpacing="10" ColumnSpacing="10">
-            
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Text="Available Items" 
-                   TextColor="Black"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
+        <StackLayout Padding="20" Spacing="10">
+            <Label Text="Shop" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
                    HorizontalOptions="Center" 
-                   Grid.Row="0" 
-                   Margin="0,10,0,0"/>
+                   Margin="0,20,0,10"/>
 
-            <ListView x:Name="InventoryListView" 
-                      ItemSelected="OnInventoryItemSelected" 
-                      Grid.Row="1"
-                      VerticalOptions="FillAndExpand"
-                      Margin="0,0,0,10">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell>
-                            <TextCell.Text>
-                                <MultiBinding StringFormat="ID: {0} - {1}">
-                                    <Binding Path="Id"/>
-                                    <Binding Path="Name"/>
-                                </MultiBinding>
-                            </TextCell.Text>
-                            <TextCell.Detail>
-                                <Binding Path="Description"/>
-                            </TextCell.Detail>
-                        </TextCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Grid RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-            <Button x:Name="AddToCartButton" 
-                    Text="Add to Cart" 
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    Clicked="OnAddToCartClicked" 
-                    IsEnabled="False" 
-                    Grid.Row="2" 
-                    HorizontalOptions="Center"
-                    Margin="0,0,0,10"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Label Text="Cart Items" 
-                   
-                   TextColor="Black"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center" 
-                   Grid.Row="3" 
-                   Margin="0,10,0,0"/>
-
-            <ListView x:Name="CartListView" 
-                      ItemSelected="OnCartItemSelected" 
-                      Grid.Row="4" 
-                      VerticalOptions="FillAndExpand"
-                      Margin="0,0,0,10">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell>
-                            <TextCell.Text>
-                                <MultiBinding StringFormat="ID: {0} - {1}">
-                                    <Binding Path="Id"/>
-                                    <Binding Path="Name"/>
-                                </MultiBinding>
-                            </TextCell.Text>
-                            <TextCell.Detail>
-                                <Binding Path="Quantity"/>
-                            </TextCell.Detail>
-                        </TextCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Button x:Name="RemoveFromCartButton" 
-                    Text="Remove from Cart" 
-                    Clicked="OnRemoveFromCartClicked" 
-                    IsEnabled="False" 
-                    Grid.Row="5" 
-                    HorizontalOptions="Center"
-                    Margin="0,0,0,10"/>
-
-            <StackLayout Orientation="Horizontal" 
-                         HorizontalOptions="Center" 
-                         Grid.Row="6" 
-                         Spacing="10">
-                <Label x:Name="TotalPriceLabel" 
-                       FontSize="Large" 
+                <Label Grid.Row="0" Grid.Column="0"
+                       Text="Inventory" 
+                       FontSize="Medium" 
                        FontAttributes="Bold" 
-                       VerticalOptions="Center"
-                       Margin="0,0,10,0"/>
+                       HorizontalOptions="Center" 
+                       Margin="0,10,0,10"/>
+                <Label Grid.Row="0" Grid.Column="1"
+                       Text="Cart" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" 
+                       Margin="0,10,0,10"/>
 
-                <Button Text="Checkout" 
-                        Clicked="OnCheckoutClicked"
-                        BackgroundColor="Black"
+                <ListView Grid.Row="1" Grid.Column="0"
+                          x:Name="InventoryListView"
+                          ItemSelected="OnInventoryItemSelected"
+                          VerticalOptions="FillAndExpand"
+                          HeightRequest="200">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" 
+                                      Detail="{Binding Quantity, StringFormat='Quantity: {0}'}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Grid.Row="1" Grid.Column="1"
+                          x:Name="CartListView"
+                          ItemSelected="OnCartItemSelected"
+                          VerticalOptions="FillAndExpand"
+                          HeightRequest="200">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" 
+                                      Detail="{Binding Quantity, StringFormat='Quantity: {0}'}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Button Grid.Row="2" Grid.Column="0"
+                        Text="Add to Cart" 
+                        Clicked="OnAddToCartClicked" 
+                        BackgroundColor="LightGreen" 
                         TextColor="White"
                         FontAttributes="Bold"
                         CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="10,5"
+                        IsEnabled="False"
+                        x:Name="AddToCartButton"/>
+
+                <Button Grid.Row="2" Grid.Column="1"
+                        Text="Remove from Cart" 
+                        Clicked="OnRemoveFromCartClicked" 
+                        BackgroundColor="Red" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="10,5"
+                        IsEnabled="False"
+                        x:Name="RemoveFromCartButton"/>
+
+                <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                        Text="Checkout" 
+                        Clicked="OnCheckoutClicked" 
+                        BackgroundColor="LightBlue" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
                         Padding="10,5"/>
-            </StackLayout>
-        </Grid>
+            </Grid>
+
+            <Label x:Name="TotalPriceLabel"
+                   Text="Total Price: $0.00"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,10"/>
+
+            <Label Text="Wish Lists" 
+                   FontSize="Medium" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,10"/>
+
+            <ListView x:Name="WishListView"
+                      ItemSelected="OnWishListSelected"
+                      VerticalOptions="FillAndExpand"
+                      HeightRequest="150">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Create Wish List" 
+                    Clicked="OnCreateWishListClicked" 
+                    BackgroundColor="LightCoral" 
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="10,5"
+                    Margin="0,10,0,10"/>
+
+            <Button Text="Add to Wishlist"
+                    Clicked="OnAddToWishlistClicked"
+                    BackgroundColor="LightGreen"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="10,5"
+                    IsEnabled="False"
+                    x:Name="AddToWishlistButton"/>
+            
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
 

@@ -19,16 +19,37 @@ namespace Amazon.MAUI
             DescriptionEntry.Text = item.Description;
             PriceEntry.Text = item.Price.ToString();
             QuantityEntry.Text = item.Quantity.ToString();
+            IsBogoEntry.Text = item.IsBogo.ToString();  // Set IsBogo
+            MarkdownEntry.Text = item.MarkdownAmount.ToString();
         }
 
         private void OnSaveClicked(object sender, EventArgs e)
         {
+            var name = NameEntry.Text;
+            var description = DescriptionEntry.Text;
+            var price = double.Parse(PriceEntry.Text);
+            var quantity = int.Parse(QuantityEntry.Text);
+            bool isBogo;
+            if (bool.TryParse(IsBogoEntry.Text, out bool result))
+            {
+                isBogo = result;
+            }
+            else
+            {
+                DisplayAlert("Error", "Invalid BOGO value. Please enter 'true' or 'false'.", "OK");
+                return;
+            }
+            var markdownAmount = double.Parse(MarkdownEntry.Text);
+
             _inventory.UpdateItem(
                 _item.Id,
-                NameEntry.Text,
-                DescriptionEntry.Text,
-                double.Parse(PriceEntry.Text),
-                int.Parse(QuantityEntry.Text));
+                name,
+                description,
+                price,
+                quantity,
+                isBogo,
+                markdownAmount);
+
             _refreshCallback.Invoke();
             Navigation.PopAsync();
         }

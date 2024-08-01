@@ -13,14 +13,19 @@ namespace Amazon.MAUI
         public double Price { get; set; }
         public int Id { get; set; }
         public int Quantity { get; set; }
+        public bool IsBogo { get; set; }
 
-        public Item(string name, string description, double price, int id, int quantity)
+        public double MarkdownAmount { get; set; }
+
+        public Item(string name, string description, double price, int id, int quantity, bool isBogo, double markdownAmount)
         {
             Name = name;
             Description = description;
             Price = price;
             Id = id;
             Quantity = quantity;
+            IsBogo = isBogo;
+            MarkdownAmount = markdownAmount;
         }
 
         public override string ToString()

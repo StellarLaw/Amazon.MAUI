@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Amazon.MAUI.EditItemPage">
     <ContentPage.Content>
-        <StackLayout Padding="20" Spacing="15">
+        <StackLayout Padding="20" Spacing="10">
             <Label Text="Edit Item" 
                    FontSize="Large" 
                    FontAttributes="Bold" 
@@ -14,29 +14,34 @@
             <Entry x:Name="NameEntry" 
                    Placeholder="Name" 
                    FontSize="Medium"
-                   Margin="0,0,0,5"/>
-
+                   Margin="0,0,0,10"/>
             <Entry x:Name="DescriptionEntry" 
                    Placeholder="Description" 
                    FontSize="Medium"
-                   Margin="0,0,0,5"/>
-
+                   Margin="0,0,0,10"/>
             <Entry x:Name="PriceEntry" 
                    Placeholder="Price" 
-                   Keyboard="Numeric" 
-                   FontSize="Medium"
-                   Margin="0,0,0,5"/>
-
-            <Entry x:Name="QuantityEntry" 
-                   Placeholder="Quantity" 
-                   Keyboard="Numeric" 
+                   Keyboard="Numeric"
                    FontSize="Medium"
                    Margin="0,0,0,10"/>
-
+            <Entry x:Name="QuantityEntry" 
+                   Placeholder="Quantity" 
+                   Keyboard="Numeric"
+                   FontSize="Medium"
+                   Margin="0,0,0,10"/>
+            <Entry x:Name="IsBogoEntry" 
+                   Placeholder="BOGO (True/False)" 
+                   FontSize="Medium"
+                   Margin="0,0,0,10"/>
+            <Entry x:Name="MarkdownEntry" 
+                   Placeholder="Markdown Amount" 
+                   Keyboard="Numeric"
+                   FontSize="Medium"
+                   Margin="0,0,0,10"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
                 <Button Text="Save" 
                         Clicked="OnSaveClicked" 
-                        BackgroundColor="LightSkyBlue" 
+                        BackgroundColor="LightGreen" 
                         TextColor="White"
                         FontAttributes="Bold"
                         CornerRadius="10"

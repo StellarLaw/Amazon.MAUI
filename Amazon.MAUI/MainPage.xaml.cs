@@ -7,6 +7,7 @@ namespace Amazon.MAUI
     {
         private Inventory inventory;
         private Shop shop;
+        
 
         public MainPage()
         {
@@ -15,14 +16,19 @@ namespace Amazon.MAUI
             shop = new Shop(inventory);
         }
 
-        private async void OnManageInventoryClicked(object sender, EventArgs e)
+        private async void OnInventoryClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new InventoryPage(inventory));
         }
 
         private async void OnShopClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ShopPage(shop));
+            await Navigation.PushAsync(new ShopPage(shop, inventory));
+        }
+
+        private void OnSetTaxRateClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SetTaxPage(shop));
         }
     }
 }

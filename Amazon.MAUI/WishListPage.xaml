@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Amazon.MAUI.WishListPage"
+             Title="WishListPage">
+
+
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="10">
+            <Label Text="{Binding Name}" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,10"/>
+            <ListView x:Name="WishListItemsView"
+                      ItemsSource="{Binding Items}"
+                      ItemSelected="OnWishListItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Label Text="{Binding Id}" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding Name}" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="EndAndExpand"/>
+                                
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label x:Name="TotalPriceLabel"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,10"/>
+            <Button Text="Checkout" 
+                    Clicked="OnCheckoutClicked" 
+                    BackgroundColor="LightBlue" 
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    Padding="10,5"/>
+            <Button Text="Remove Selected Item" 
+                    Clicked="OnRemoveSelectedItemClicked"
+                    BackgroundColor="Red" 
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    IsEnabled="False" 
+                    x:Name="RemoveSelectedItemButton"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
